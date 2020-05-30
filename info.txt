@@ -1,0 +1,16 @@
+1. Create site
+
+CHECK_COMPANY_PREFERENCE_EXIST = "select business_id from preference_master where business_id=?";
+
+String GET_COMPNAY_PREFERENCE_DETAILS = "select distinct PM.alarm_id,PM.role_id,RM.user_role ,PM.sms, PM.email, PM.threshold,PM.threshold_refresh_interval,
+AM.alarm_type,AM.alarm_name,AM.description from hydro.preference_master PM left join hydro.alarm_master AM on AM.alarm_id= PM.alarm_id left join hydro.role_master 
+RM on RM.role_id=PM.role_id where PM.business_id =? and site_id is null";
+
+
+
+ "INSERT into preference_master(id, business_id,site_id, unit_id, machine_id,role_id, alarm_id, sms, email, threshold, threshold_refresh_interval,created_by, 
+created_date, modified_by, modified_date) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,utc_timestamp,?,utc_timestamp)";
+
+
+Double
+Integer
